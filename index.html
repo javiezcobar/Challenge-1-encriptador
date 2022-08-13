@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>encriptador</title>
+    
+</head>
+<body>
+    <header>
+        <img id="logo" src="assets/Vector.svg">
+    </header>
+    <div id="display">este es un texto</div>
+    <span id="input" class="textarea" role="textbox" contenteditable>Ingrese su texto Aqui</span></p>
+    <button id="encript">encriptar</button>
+    <button id="desencript">Desencriptar</button>
+    <script>
+        const input = document.getElementById("input");
+        const botonEncript = document.getElementById("encript");
+        const botonDesencript = document.getElementById("desencript");
+        const display = document.getElementById("display")
+        let arr = [];
+        let encriptado = "";
+
+        function encriptar(){
+            for(i = 0;i < input.textContent.length;i++){
+                if (input.textContent[i] == "a"){arr.push("ai")}
+                else if (input.textContent[i] == "e"){arr.push("enter")}
+                else if (input.textContent[i] == "i"){arr.push("imes")}
+                else if (input.textContent[i] == "o"){arr.push("ober")}
+                else if (input.textContent[i] == "u"){arr.push("ufat")}
+                else {arr.push(input.textContent[i])}
+            }
+            encriptado = arr.join("");
+            arr = [];
+
+           // envia el texto al div 
+           display.innerText = encriptado;
+        }        
+        
+        function desencriptar(){
+            encriptado = input.textContent;
+
+            while(encriptado.includes("ai")){
+                encriptado = encriptado.replace("ai","a");   
+            }
+            while(encriptado.includes("enter")){
+                encriptado = encriptado.replace("enter","e");   
+            }
+            while(encriptado.includes("imes")){
+                encriptado = encriptado.replace("imes","i");   
+            }
+            while(encriptado.includes("ober")){
+                encriptado = encriptado.replace("ober","o");   
+            }
+            while(encriptado.includes("ufat")){
+                encriptado = encriptado.replace("ufat","u");   
+            }
+        
+            display.innerText = encriptado
+        }
+
+        botonEncript.onclick = encriptar;
+        botonDesencript.onclick = desencriptar;
+        
+
+    </script>
+</body>
+</html>
