@@ -12,10 +12,14 @@
     <header>
         <img id="logo" src="assets/Vector.svg">
     </header>
-    <div id="display">este es un texto</div>
-    <span id="input" class="textarea" role="textbox" contenteditable>Ingrese su texto Aqui</span></p>
-    <button id="encript">encriptar</button>
-    <button id="desencript">Desencriptar</button>
+    <div id="seccion1">
+        <textarea id="input" class="textarea" placeholder="Ingrese su texto Aqui"></textarea>
+        <button id="encript" class="boton">encriptar</button>
+        <button id="desencript" class="boton">Desencriptar</button>
+    </div>
+       
+        <div id="display">este es un texto</div>
+    
     <script>
         const input = document.getElementById("input");
         const botonEncript = document.getElementById("encript");
@@ -25,13 +29,13 @@
         let encriptado = "";
 
         function encriptar(){
-            for(i = 0;i < input.textContent.length;i++){
-                if (input.textContent[i] == "a"){arr.push("ai")}
-                else if (input.textContent[i] == "e"){arr.push("enter")}
-                else if (input.textContent[i] == "i"){arr.push("imes")}
-                else if (input.textContent[i] == "o"){arr.push("ober")}
-                else if (input.textContent[i] == "u"){arr.push("ufat")}
-                else {arr.push(input.textContent[i])}
+            for(i = 0;i < input.value.length;i++){
+                if (input.value[i] == "a"){arr.push("ai")}
+                else if (input.value[i] == "e"){arr.push("enter")}
+                else if (input.value[i] == "i"){arr.push("imes")}
+                else if (input.value[i] == "o"){arr.push("ober")}
+                else if (input.value[i] == "u"){arr.push("ufat")}
+                else {arr.push(input.value[i])}
             }
             encriptado = arr.join("");
             arr = [];
@@ -41,7 +45,7 @@
         }        
         
         function desencriptar(){
-            encriptado = input.textContent;
+            encriptado = input.value;
 
             while(encriptado.includes("ai")){
                 encriptado = encriptado.replace("ai","a");   
