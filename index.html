@@ -13,18 +13,29 @@
         <img id="logo" src="assets/Vector.svg">
     </header>
     <div id="seccion1">
-        <textarea id="input" class="textarea" placeholder="Ingrese su texto Aqui"></textarea>
-        <button id="encript" class="boton">encriptar</button>
+        <textarea id="input" class="textarea" onblur="this.placeholder='Ingrese el texto aqui'" onfocus="this.placeholder=''" placeholder="Ingrese el texto aqui"></textarea>
+        <div>
+            <div class="iText"><img src="assets/info.svg" style="margin-right: 8px;"><span>Letras minusculas y sin acentos</span></div>
+        </div>
+        <button id="encript" class="botonPrimario">encriptar</button>
         <button id="desencript" class="boton">Desencriptar</button>
     </div>
-       
-        <div id="display">este es un texto</div>
-    
+        <div class="seccion2">
+            <div id="display"></div>
+            <div id="infoText">
+                <img src="assets/Muñeco.svg">
+                <h2>Ningún mensaje fue encontrado</h2>
+                <span>Ingresa el texto que desees encriptar o desencriptar.</span>
+            </div>
+            <button id="btnCopiar" class="boton">Copiar</button>
+        </div>
     <script>
         const input = document.getElementById("input");
         const botonEncript = document.getElementById("encript");
         const botonDesencript = document.getElementById("desencript");
         const display = document.getElementById("display")
+        const infoText = document.getElementById("infoText")
+        const btnCopiar = document.getElementById("btnCopiar")
         let arr = [];
         let encriptado = "";
 
@@ -42,6 +53,9 @@
 
            // envia el texto al div 
            display.innerText = encriptado;
+
+           infoText.style.display = "none";
+           btnCopiar.style.display = "inline";
         }        
         
         function desencriptar(){
@@ -64,12 +78,22 @@
             }
         
             display.innerText = encriptado
+
+            infoText.style.display = "none";
+            btnCopiar.style.display = "inline";
+
+        }
+
+        function copiar(){
+            input.value = display.innerText;
+            display.innerText = "";
+            btnCopiar.style.display = "none";
         }
 
         botonEncript.onclick = encriptar;
         botonDesencript.onclick = desencriptar;
+        btnCopiar.onclick = copiar;
         
-
     </script>
 </body>
 </html>

@@ -44,11 +44,16 @@ table {
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
+html {
+	background-color: #F3F5FC;
+	height: 100vh;
+	width: 100vw;
+}
+
 body{
     font-family: 'Inter', sans-serif;
     font-style: normal;
 	display: flex;
-	height: 700px;
 }
 
 header {
@@ -58,24 +63,90 @@ header {
 }
 
 #seccion1 {
-	width: 600px;
+	width: 100%;
 	padding-top: 168px;
+	padding-right: 30px;
 }
 
 #input {
+	font-family: 'Inter', sans-serif;
 	width: 100%;
 	height: 300px;
     border: 0;
-    font-size: 32px;
+    font-size: 24px;
     color: #0A3871;
+	background-color: #F3F5FC;;
 }
 
+#input::placeholder {
+	color: #0A3871;
+}
 
+#input:focus-visible {
+	outline: none;
+}
+
+.iText {
+	margin: 8px 0;
+	display: flex;
+	align-items: center;
+	color: #0A3871;
+	font-size: small;
+	padding: 2px;
+}
+
+.botonPrimario {
+    width: 250px;
+    height: 42px;
+    color: white;
+	background-color: #0A3871;
+    border-radius: 15px;
+    border: 1px solid;
+}
 
 .boton {
     width: 250px;
     height: 42px;
     color: #0A3871;
-    border-radius: 20px;
+    border-radius: 15px;
     border: 1px solid;
+}
+
+.seccion2 {
+	width: 50vw;
+	height: 450px;
+	border-radius: 15px;
+	margin: 30px 20px;
+	padding: 30px;
+	background-color:  white;
+	box-shadow: 0px 8px 10px 1px rgba(0,0,0,0.1);
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+#display {
+	font-weight: 200;
+}
+
+h2 {
+	font-weight: 600;
+	line-height: 2;
+}
+span {
+	font-weight: 200;
+}
+
+#infoText {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+#btnCopiar {
+	display: none;
+	justify-content: flex-end;
+
 }
